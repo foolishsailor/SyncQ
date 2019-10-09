@@ -31,16 +31,14 @@ function addQueueItems(){
     let qty = document.querySelector('[name="qty"]').value;
 
     var queueItemObj = {
+        url: url,
+        success: success,
+        fail: fail,
         debug: true,
         responseType: 'text',
         retry:true,
         maxRetries: 3,
         name: 'Default',
-        priority: true, 
-        url: url,
-        data: null,
-        success: success,
-        fail: fail,        
         debugData: debugData
     };
 
@@ -49,7 +47,8 @@ function addQueueItems(){
     }
 
     for (var i = 0; i < qty; i++) {
-        syncQueue.add(queueItemObj);            
+        syncQueue.add(queueItemObj);    
+     
     }
 }
 
