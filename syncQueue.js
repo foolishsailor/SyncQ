@@ -1,9 +1,12 @@
 /**
- *  QueueManager creates an array of async fetch() requests and manages them as a syncronous queue
- *
- *  For a situation where you need syncronous reqeusts but still want the yummy goodness of promises
- *
- *
+ * @Author JC Durbin
+ * @License Licensed under the MIT license
+ * <LICENSE-MIT or http://opensource.org/licenses/MIT>
+ * This file may not be copied, modified, or distributed
+ * except according to those terms.
+ *  
+ * QueueManager creates an array of async fetch() requests and manages them as a syncronous queue
+ * For a situation where you need syncronous reqeusts but still want the yummy goodness of promises
  */
 
 function syncQueue() {
