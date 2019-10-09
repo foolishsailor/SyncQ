@@ -1,5 +1,5 @@
 # syncQueue
-Synchronous queue for asynchronous Fetch() - when you need sequential execution but still want all that async promise goodness.   
+Synchronous queue for asynchronous Fetch() - when you need sequential execution but still want all that async promise goodness.
 
 ## Example
 
@@ -27,17 +27,20 @@ var queueItemObj = {
 
 syncQueue.add(queueItemObj); 
  ```
- ## Options
- Queue object options
- 
-### Required
+ ## Methods
+ ***.add(item)***
+ Add item to queue and begins execution.  Execution continues until all items in queue are executed.
+  
+### item options
+
+#### Required
 | Option | Type | Description  | Default | 
 | --- | --- | --- | --- |
 | **url** | string | Url of request ||
 | **success** | function | Callback function on successful request ||
 | **fail** | function | Callback function on failed request ||
 
-### Optional
+#### Optional
 | Option | Type | Description  | Default | 
 | --- | --- | --- | --- |
 | **retry** | bool | Retry item if request fails | false |
@@ -47,6 +50,13 @@ syncQueue.add(queueItemObj);
 | **priority** | bool | If true item is added to top of queue | false |
 | **debug** | bool | Turn debug on and sends data to debugData callback | false |
 | **debugData** | function | Callback function to receive debug data |  |
+
+
+***.clearAll()***
+ Clear all items in queue.
+ 
+ ***.clearByName(name)***
+ Clear all items in queue that have item.name = name.
 
 
 
