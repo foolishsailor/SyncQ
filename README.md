@@ -28,7 +28,14 @@ var queueItemObj = {
 syncQueue.add(queueItemObj); 
  ```
  ## Methods
- ***.add(item)***
+ 
+ #### clearAll()
+ Clear all items in queue.
+ 
+ #### .clearByName(name)
+ Clear all items in queue that have item.name = name.
+
+ #### .add(item)
  Add item to queue and begins execution.  Execution continues until all items in queue are executed.
   
 ### item options
@@ -52,11 +59,6 @@ syncQueue.add(queueItemObj);
 | **debugData** | function | Callback function to receive debug data |  |
 
 
-***.clearAll()***
- Clear all items in queue.
- 
- ***.clearByName(name)***
- Clear all items in queue that have item.name = name.
 
 
 
