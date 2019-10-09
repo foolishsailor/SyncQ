@@ -23,6 +23,8 @@ function syncQueue() {
    *  @param {function}         item.fail - the callback function on failed request
    *
    *  Optional Params
+   *  @param {bool}             [item.header=false] - Get headers from request and add to reponse as "header" property
+   *  @param {array}            [item.headers = []] - List of strings of headers to look for
    *  @param {bool}             [item.retry=false] - Retry item if request fails
    *  @param {'json' | 'text'}  [item.responseType='json'] - how to parse the reponse
    *  @param {integer}          [item.maxRetries=3] - Number of times to retryRetry item if request fails
@@ -35,10 +37,8 @@ function syncQueue() {
 
   function add(item) {
     //set defaults
-    item.retry = item.retry || false;
     item.responseType = item.responseType || 'json';
     item.maxRetries = 3;
-
 
     if (item.priority) {
       queue.unshift(item);
@@ -88,17 +88,45 @@ function syncQueue() {
     var item = queue.shift();
 
     fetch(item.url, {})
-      .then(function(result) {
-        switch (item.responseType) {
+      .then(function(result){
+        var returnObj = {
+          result: result
+        } 
+        
+         switch (item.responseType) {
           case "json":
-            return result.json();
+            return result.json().then(function(result){
+              returnObj.content = result;
+              return returnObj;
+            });
+            
           case "text":
-            return result.text();
+            return result.text().then(function(result){
+              returnObj.content = result;
+              return returnObj;
+            });           
         }
       })
-      .then(function(result) {
-        item.success(result);
+      .then(function(returnObj) {      
+        if (item.header){ 
+          var headers = []; 
+            item.headers.forEach(function(header){                
+              headers.push(returnObj.result.headers.get(header))
+            })                
+        
+          return Promise.all(headers).then(function(results){
+            returnObj.headers = results;       
+            return returnObj
+          })
+        }
+
+        return returnObj;
+
+      })        
+      .then(function(results) {
+        item.success(results);
         execute();
+
       })
       .catch(function(error) {
         if (item.debug)
@@ -115,6 +143,7 @@ function syncQueue() {
             );
 
           add(item);
+
         } else {
           item.fail(error);
 
@@ -125,6 +154,7 @@ function syncQueue() {
         }
 
         execute();
+
       });
   }
 

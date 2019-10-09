@@ -9,15 +9,14 @@
                 height: 500px;
                 overflow-y: scroll;
                 border: solid ipx black;
-
             }
             
         </style>
     </head>
     <body>
         <div class="container">
-            URL to use for test: <input type="text" name="url"><br>
-            Quantity of requests: <input type="number" name="qty"><br>
+            URL to use for test: <input type="text" name="url" value="http://192.168.20.1:8080/c"><br>
+            Quantity of requests: <input type="number" name="qty" value = 1><br>
             <button onclick="addQueueItems()"> Start Test</button>
             <button onclick="queueManager.clear()">Clear All Queue</button>        
         </div>

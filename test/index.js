@@ -11,7 +11,7 @@ function element(data){
 
 function success(data) {
     console.log("Successful result", data);
-    element(data);
+    element(JSON.stringify(data));
 }
 
 function fail(data) {
@@ -34,11 +34,10 @@ function addQueueItems(){
         url: url,
         success: success,
         fail: fail,
-        debug: true,
-        responseType: 'text',
-        retry:true,
-        maxRetries: 3,
-        name: 'Default',
+        responseType: 'json',
+        header: true,
+        headers: ['content-type'],        
+        debug: true,        
         debugData: debugData
     };
 
