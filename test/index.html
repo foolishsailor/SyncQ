@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <style>
+            button {
+                margin: 10px;
+            }
+            .resultContainer{
+                width: 500px;
+                height: 500px;
+                overflow-y: scroll;
+                border: solid ipx black;
+
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            URL to use for test: <input type="text" name="url"><br>
+            Quantity of requests: <input type="number" name="qty"><br>
+            <button onclick="addQueueItems()"> Start Test</button>
+            <button onclick="queueManager.clear()">Clear All Queue</button>        
+        </div>
+        <div id="results" class="resultContainer"></div>
+    </body>
+</html>
+<script src="../syncQueue.js"></script>
+<script src="index.js"></script>
