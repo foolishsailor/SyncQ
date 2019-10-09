@@ -36,7 +36,16 @@ syncQueue.add(queueItemObj);
  Clear all items in queue that have item.name = name.
 
  #### .add(item)
- Add item to queue and begins execution.  Execution continues until all items in queue are executed.
+ Add item to queue and begins execution.  Execution continues until all items in queue are executed.  
+ 
+ Returns object:
+ ```.js
+    {
+        result, //Original response
+        content, //Body of repsonse
+        headers //Array of headers 
+    }
+ ```
   
 ### item options
 
@@ -50,8 +59,10 @@ syncQueue.add(queueItemObj);
 #### Optional
 | Option | Type | Description  | Default | 
 | --- | --- | --- | --- |
-| **retry** | bool | Retry item if request fails | false |
 | **responseType** | string | How to parse the reponse | 'json', 'text' - default = 'json' |
+| **header** | bool | Get header data from repsone | false |
+| **headers** | [string] | String names of headers to look for |  |
+| **retry** | bool | Retry item if request fails | false |
 | **maxRetries** | integer | Number of times to retryRetry item if request fails | 3 |
 | **name** | integer | Name of queue item.  Allows items to be removed by name | |
 | **priority** | bool | If true item is added to top of queue | false |
