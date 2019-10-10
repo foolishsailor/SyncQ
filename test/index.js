@@ -1,4 +1,4 @@
-var syncQueue = new syncQueue();
+var syncFetch = new syncFetch();
 var container = document.getElementById('results');
 
 function element(data){    
@@ -46,7 +46,7 @@ function addQueueItems(){
     }
 
     for (var i = 0; i < qty; i++) {
-        syncQueue.add(queueItemObj);    
+        syncFetch.add(queueItemObj);    
      
     }
 }

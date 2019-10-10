@@ -9,7 +9,7 @@
  * For a situation where you need syncronous reqeusts but still want the yummy goodness of promises
  */
 
-function syncQueue() {
+function syncFetch() {
   "use strict";
 
   var queue = [];

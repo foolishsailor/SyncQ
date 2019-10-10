@@ -7,7 +7,7 @@ ES5 version
 
 #### Instantiate
 ```.js
-var syncQueue = new syncQueue();
+var syncFetch = new syncFetch();
 ```
 #### Create callback functions
 ```.js
@@ -27,7 +27,7 @@ var queueItemObj = {
     fail: fail
 };
 
-syncQueue.add(queueItemObj); 
+syncFetch.add(queueItemObj); 
  ```
  ## Methods
  
