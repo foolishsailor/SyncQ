@@ -34,10 +34,10 @@ syncFetch.add(queueItemObj);
  #### clearAll()
  Clear all items in queue.
  
- #### .clearByName(name)
+ #### clearByName(name)
  Clear all items in queue that have item.name = name.
 
- #### .add(item)
+ #### add(item)
  Add item to queue and begins execution.  Execution continues until all items in queue are executed.  
  
  Returns object:
