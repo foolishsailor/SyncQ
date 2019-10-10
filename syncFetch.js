@@ -23,10 +23,10 @@ function syncQueue() {
    *  @param {function}         item.fail - the callback function on failed request
    *
    *  Optional Params
+   *  @param {'json' | 'text'}  [item.responseType='json'] - how to parse the reponse
    *  @param {bool}             [item.header=false] - Get headers from request and add to reponse as "header" property
    *  @param {array}            [item.headers = []] - List of strings of headers to look for
    *  @param {bool}             [item.retry=false] - Retry item if request fails
-   *  @param {'json' | 'text'}  [item.responseType='json'] - how to parse the reponse
    *  @param {integer}          [item.maxRetries=3] - Number of times to retryRetry item if request fails
    *  @param {string}           [item.name] - Name of item.  ALows items to be grouped in queue and removed
    *  @param {bool}             [item.priority] - If true item is added to top of queue   *
