@@ -92,7 +92,7 @@ function syncFetch() {
         var returnObj = {
           result: result
         } 
-        
+       
          switch (item.responseType) {
           case "json":
             return result.json().then(function(result){
@@ -122,7 +122,8 @@ function syncFetch() {
 
         return returnObj;
 
-      })        
+      })     
+        
       .then(function(results) {
         item.success(results);
         execute();
