@@ -5,7 +5,7 @@
  * This file may not be copied, modified, or distributed
  * except according to those terms.
  *  
- * QueueManager creates an array of async fetch() requests and manages them as a syncronous queue
+ * syncFetch creates an array of async fetch() requests and manages them as a syncronous queue
  * For a situation where you need syncronous reqeusts but still want the yummy goodness of promises
  */
 
@@ -38,7 +38,7 @@ function syncFetch() {
   function add(item) {
     //set defaults
     item.responseType = item.responseType || 'json';
-    item.maxRetries = 3;
+    item.maxRetries = item.maxRetries || 3;
 
     if (item.priority) {
       queue.unshift(item);
