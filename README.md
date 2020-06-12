@@ -3,8 +3,6 @@
 # syncFetch
 Synchronous queue for asynchronous Javascript Fetch() - when you need sequential execution but still want all that async promise goodness.
 
-ES5 version
-
 ## Example
 
 #### Instantiate
