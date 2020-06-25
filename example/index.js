@@ -1,4 +1,7 @@
-var syncFetch = SyncFetch();
+var syncFetch = new SyncQ();
+
+console.log("syncFetch", syncFetch());
+
 var container = document.getElementById("results");
 
 function element(data) {

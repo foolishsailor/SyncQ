@@ -1,1 +1,14 @@
 *.code-workspace
+
+# dependencies
+/node_modules
+/.pnp
+/coverage
+.pnp.js
+
+
+# misc
+.DS_Store
+
+
+npm-debug.log*
