@@ -1,0 +1,114 @@
+:root {
+  --background: #a5d0a8; /* turquiose green */
+  --background-card: #8cada7; /* morning blue */
+  --text-dark: #110b11; /* Xiketic */
+  --text-light: #f2f4cb;
+  --secondary-color: #b7990d;
+  --success: #4f772d;
+  --error: #e72623;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: var(--background);
+  font-family: "Raleway";
+  font-weight: 400;
+  font-size: 16px;
+}
+
+button {
+  margin: 10px;
+  min-width: 200px;
+  padding: 15px;
+  outline: none;
+  border-radius: 100px;
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+  font-size: 1.2rem;
+  font-weight: 700;
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.1);
+  transition: all 150ms;
+}
+
+button:hover {
+  filter: brightness(120%);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+form {
+  text-align: right;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--text-dark);
+  color: var(--text-light);
+}
+
+.input---not-interactive {
+  user-select: none;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.queue-details {
+  flex: 0.5;
+}
+
+.queue-details__card {
+  margin: 0 40px 40px 0;
+  padding: 40px;
+  border-radius: 10px;
+  background-color: var(--background-card);
+}
+
+.queue-results {
+  flex: 1;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-color: var(--text-dark);
+  color: var(--text-light);
+  text-align: left;
+  font-family: "Roboto Condensed", sans-serif;
+  white-space: pre-line;
+}
+
+.queue-results---success {
+  color: var(--success);
+}
+
+.queue-results---error {
+  color: var(--error);
+}
+
+.queue-results---message {
+  color: var(--text-light);
+}

@@ -1,27 +1,46 @@
 <html>
   <head>
-    <style>
-      button {
-        margin: 10px;
-      }
-      .resultContainer {
-        width: 500px;
-        height: 500px;
-        overflow-y: scroll;
-        border: solid ipx black;
-      }
-    </style>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="container">
-      URL to use for test:
-      <input type="text" name="url" value="http://httpbin.org/get" /><br />
-      Quantity of requests: <input type="number" name="qty" value="1" /><br />
-      <button onclick="addQueueItems()">Start Test</button>
-      <button onclick="queueManager.clear()">Clear All Queue</button>
+      <div class="queue-details">
+        <div class="queue-details__card">
+          <form>
+            <lable for="url">URL to use for test:</lable>
+            <input
+              type="text"
+              name="url"
+              id="url"
+              value="http://httpbin.org/get"
+            /><br />
+            <label for="qty">Quantity of requests:</label>
+
+            <input type="number" name="qty" id="qty" value="1" /><br />
+            <button onclick="addQueueItems(event, this)">Start Test</button>
+            <button onclick="queueManager.clear()">Clear All Queue</button>
+          </form>
+        </div>
+        <div class="queue-details__card">
+          <form>
+            <label for="queueItems">Items In Queue</label>
+            <input name="queueItems" type="number" id="queueItems" value="0" />
+          </form>
+        </div>
+      </div>
+
+      <div id="results" class="queue-results"></div>
     </div>
-    <div id="results" class="resultContainer"></div>
   </body>
 </html>
-<script src="../syncQ_es6.js"></script>
+<script src="./syncQ.js"></script>
 <script src="index.js"></script>

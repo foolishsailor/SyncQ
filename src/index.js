@@ -9,7 +9,7 @@
  * For a situation where you need syncronous reqeusts but still want the yummy goodness of promises
  */
 
-const SyncQ = () => {
+module.exports = () => {
   "use strict";
 
   let queue = [];
@@ -104,7 +104,7 @@ const SyncQ = () => {
     let returnObj = {
       result: response,
     };
-    console.log("item", item);
+
     item.responseType === "json"
       ? (returnObj.content = await response.json())
       : (returnObj.content = await response.text());
@@ -123,7 +123,7 @@ const SyncQ = () => {
   };
 
   /**
-   * Executes the fetch.  If the fetch has retry selected then will retry unti llimit reached.  Returns results to callbacks
+   * Executes the fetch.  If the fetch has retry selected then will retry unti limit reached.  Returns results to callbacks
    */
   const execute = async () => {
     if (queue.length === 0) {
@@ -137,6 +137,7 @@ const SyncQ = () => {
     try {
       const response = await fetch(item.url, {});
       if (!response) throw "Null Return";
+
       handleResponse({ item, response });
     } catch (err) {
       handleError({ item, err });

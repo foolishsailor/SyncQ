@@ -1,5 +1,5 @@
 {
-  "name": "sync-q",
+  "name": "syncq",
   "version": "1.0.0",
   "description": "Synchronous queue for asynchronous Javascript Fetch() - when you need sequential execution but still want all that async promise goodness",
   "main": "syncFetch.js",
@@ -7,7 +7,10 @@
     "example": "example"
   },
   "scripts": {
-    "test": "npm test"
+    "test": "jest",
+    "test:with-coverage": "jest --coverage && coveralls < coverage/lcov.info",
+    "build:umd-dev": "webpack --output-filename syncQ.js --mode development",
+    "build:umd-production": "webpack --output-filename syncQ.min.js --mode production"
   },
   "repository": {
     "type": "git",

@@ -1,24 +1,39 @@
-var syncFetch = new SyncQ();
+const syncFetch = syncQ();
 
-console.log("syncFetch", syncFetch());
+let container = document.getElementById("results");
+let queueCount = document.querySelector('[name="queueItems"]');
 
-var container = document.getElementById("results");
+const element = (data, status) => {
+  let element = document.createElement("div"),
+    elemClass = "";
 
-function element(data) {
-  var element = document.createElement("div");
+  switch (status) {
+    case "success":
+      elemClass = "queue-results---success";
+      break;
+    case "fail":
+      elemClass = "queue-results---error";
+      break;
+    default:
+      elemClass = "queue-results---message";
+  }
+
+  element.classList.add(elemClass);
+
   element.innerHTML = data;
 
   container.appendChild(element);
-}
+};
 
 function success(data) {
-  console.log("Successful result", data);
-  element(JSON.stringify(data));
+  queueCount.value--;
+  element(JSON.stringify(data), "success");
 }
 
 function fail(data) {
-  console.error("Failed result", data);
-  element(data);
+  console.log("test", data);
+  queueCount.value--;
+  element(data, "fail");
 }
 
 function debugData(data) {
@@ -26,11 +41,15 @@ function debugData(data) {
   element(data);
 }
 
-function addQueueItems() {
+function addQueueItems(event) {
+  event.preventDefault();
+
   let url = document.querySelector('[name="url"]').value;
   let qty = document.querySelector('[name="qty"]').value;
 
-  var queueItemObj = {
+  queueCount.value = 0;
+
+  let queueItemObj = {
     url: url,
     success: success,
     fail: fail,
@@ -45,7 +64,8 @@ function addQueueItems() {
     container.lastChild.remove();
   }
 
-  for (var i = 0; i < qty; i++) {
+  for (let i = 0; i < qty; i++) {
     syncFetch.add(queueItemObj);
+    queueCount.value++;
   }
 }
