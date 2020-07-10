@@ -1,8 +1,8 @@
 {
   "name": "syncq",
-  "version": "1.0.0",
+  "version": "0.0.9",
   "description": "Synchronous queue for asynchronous Javascript Fetch() - when you need sequential execution but still want all that async promise goodness",
-  "main": "syncFetch.js",
+  "main": "index.js",
   "directories": {
     "example": "example"
   },
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/foolishsailor/syncFetch.git"
+    "url": "https://github.com/foolishsailor/SyncQ"
   },
   "keywords": [
     "sync",
@@ -26,9 +26,9 @@
   "author": "foolishsailor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/foolishsailor/syncFetch/issues"
+    "url": "https://github.com/foolishsailor/SyncQ/issues"
   },
-  "homepage": "https://github.com/foolishsailor/syncFetch#readme",
+  "homepage": "https://github.com/foolishsailor/SyncQ#readme",
   "devDependencies": {
     "jest": "^26.1.0"
   },
