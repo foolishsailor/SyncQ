@@ -26,9 +26,10 @@ const element = (data, status) => {
 };
 
 const success = (data) => {
-  queueCount.value = syncQ.queue.length;
-  console.log(JSON.stringify(data, null, 2));
-  element(JSON.stringify(data, null, 2), "success");
+  element(`Request: ${JSON.stringify(data.request, null, 2)}`, "success");
+  element(`Result: ${JSON.stringify(data.result, null, 2)}`, "success");
+  element(`Content: ${JSON.stringify(data.content, null, 2)}`, "success");
+  element(`Headers: ${JSON.stringify(data.headers, null, 2)}`, "success");
 };
 
 const fail = (data) => {
@@ -54,22 +55,23 @@ const addQueueItems = (event) => {
 
   queueCount.value = 0;
 
-  let queueItemObj = {
-    url: url,
-    success: success,
-    fail: fail,
-    responseType: "json",
-    header: true,
-    headers: ["content-type"],
-    debug: false,
-    debugData: debugData,
-  };
-
   while (container.lastChild) {
     container.lastChild.remove();
   }
 
   for (let i = 0; i < qty; i++) {
+    let queueItemObj = {
+      name: `Item Order In Queue: ${i}`,
+      url: url,
+      success: success,
+      fail: fail,
+      responseType: "json",
+      header: true,
+      headers: ["content-type"],
+      debug: false,
+      debugData: debugData,
+    };
+
     syncQ.add(queueItemObj);
   }
 };

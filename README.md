@@ -54,7 +54,8 @@ Returns object:
 
 ```.js
    {
-       result, //Original response
+       request, //Original request
+       result, //Response
        content, //Body of repsonse
        headers //Array of headers
    }

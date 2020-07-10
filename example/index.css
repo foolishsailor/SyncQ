@@ -98,7 +98,7 @@ input {
   color: var(--text-light);
   text-align: left;
   font-family: "Roboto Condensed", sans-serif;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .queue-results---success {

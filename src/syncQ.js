@@ -98,6 +98,7 @@ export const SyncQ = () => {
 
   const handleResponse = async ({ item, response }) => {
     let returnObj = {
+      request: item,
       result: response,
     };
 
