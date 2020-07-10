@@ -15,11 +15,11 @@ const syncQ = SyncQ();
 #### Create callback functions
 
 ```.js
-function success(data) {
+const success = (data) => {
     console.log("Successful result", data);
 }
 
-function fail(data) {
+const fail = (data) =>{
     console.error("Failed result", data);
 }
 ```
@@ -27,13 +27,13 @@ function fail(data) {
 #### Add queue item to queue
 
 ```.js
-var queueItemObj = {
+const queueItemObj = {
     url: 'http://httpbin.org/get',
     success: success,
     fail: fail
 };
 
-syncFetch.add(queueItemObj);
+syncQ.add(queueItemObj);
 ```
 
 ## Methods
