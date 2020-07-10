@@ -1,5 +1,3 @@
-** in development **
-
 # SyncQ
 Synchronous queue for asynchronous Javascript Fetch() - when you need sequential execution but still want all that async promise goodness.
 
