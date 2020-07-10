@@ -59,10 +59,10 @@ module.exports = () => {
   /**
    * Clears all items in queue and stops executing
    */
-  const clearAll = () => {
+  function clearAll() {
     active = false;
-    queue = [];
-  };
+    queue.length = 0;
+  }
 
   /**
    * Clear all items in queue with name == name
@@ -71,7 +71,7 @@ module.exports = () => {
    */
   const clearByName = (name) => {
     queue = queue.filter(function (item) {
-      if (item.name) return item.name == name;
+      if (item.name) return item.name !== name;
     });
   };
 

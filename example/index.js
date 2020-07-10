@@ -25,23 +25,30 @@ const element = (data, status) => {
   container.appendChild(element);
 };
 
-function success(data) {
-  queueCount.value--;
+const success = (data) => {
+  console.log("queue", syncFetch.queue.length);
+  queueCount.value = syncFetch.queue.length;
   element(JSON.stringify(data), "success");
-}
+};
 
-function fail(data) {
+const fail = (data) => {
   console.log("test", data);
-  queueCount.value--;
+  queueCount.value = syncFetch.queue.length;
   element(data, "fail");
-}
+};
 
-function debugData(data) {
+const debugData = (data) => {
   console.log("Debug Info", data);
   element(data);
-}
+};
 
-function addQueueItems(event) {
+const clearQueueItems = (event) => {
+  event.preventDefault();
+  console.log("trigger", syncFetch.queue.length);
+  syncFetch.clearAll();
+};
+
+const addQueueItems = (event) => {
   event.preventDefault();
 
   let url = document.querySelector('[name="url"]').value;
@@ -56,7 +63,7 @@ function addQueueItems(event) {
     responseType: "json",
     header: true,
     headers: ["content-type"],
-    debug: true,
+    debug: false,
     debugData: debugData,
   };
 
@@ -66,6 +73,5 @@ function addQueueItems(event) {
 
   for (let i = 0; i < qty; i++) {
     syncFetch.add(queueItemObj);
-    queueCount.value++;
   }
-}
+};

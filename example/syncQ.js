@@ -164,10 +164,11 @@ module.exports = () => {
   /**
    * Clears all items in queue and stops executing
    */
-  const clearAll = () => {
+  function clearAll() {
     active = false;
-    queue = [];
-  };
+    queue.length = 0;
+    console.log("QUEUE", queue.length);
+  }
 
   /**
    * Clear all items in queue with name == name
