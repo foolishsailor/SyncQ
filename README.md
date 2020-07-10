@@ -3,7 +3,8 @@
 Synchronous queue for asynchronous Javascript Fetch() - when you need sequential execution but still want all that async promise goodness.
 
 ## Example
-Usable Example here:  [SyncQ](https://sync-q.vercel.app/)
+
+Usable Example here: [SyncQ](https://sync-q.vercel.app/)
 
 #### Instantiate
 
@@ -57,7 +58,7 @@ Returns object:
    {
        request, //Original request
        result, //Response
-       content, //Body of repsonse
+       content, //Body of response
        headers //Array of headers
    }
 ```
