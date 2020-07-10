@@ -5,6 +5,9 @@
 /.pnp
 /coverage
 .pnp.js
+.vscode
+.codeclimate.json
+.coveralls.yml
 
 
 # misc
