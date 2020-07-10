@@ -27,7 +27,8 @@ const element = (data, status) => {
 
 const success = (data) => {
   queueCount.value = syncQ.queue.length;
-  element(JSON.stringify(data), "success");
+  console.log(JSON.stringify(data, null, 2));
+  element(JSON.stringify(data, null, 2), "success");
 };
 
 const fail = (data) => {
