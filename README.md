@@ -66,7 +66,7 @@ syncFetch.add(queueItemObj);
 | **headers** | [string] | String names of headers to look for |  |
 | **retry** | bool | Retry item if request fails | false |
 | **maxRetries** | integer | Number of times to retryRetry item if request fails | 3 |
-| **name** | integer | Name of queue item.  Allows items to be removed by name | |
+| **name** | string | Name of queue item.  Allows items to be removed by name | |
 | **priority** | bool | If true item is added to top of queue | false |
 | **debug** | bool | Turn debug on and sends data to debugData callback | false |
 | **debugData** | function | Callback function to receive debug data |  |
