@@ -26,8 +26,8 @@
             <label for="qty">Quantity of requests:</label>
 
             <input type="number" name="qty" id="qty" value="1" /><br />
-            <button onclick="addQueueItems(event, this)">Start Test</button>
-            <button onclick="clearQueueItems(event)">Clear All Queue</button>
+            <button id="startTest">Start Test</button>
+            <button id="clearQueue">Clear All Queue</button>
           </form>
         </div>
         <div class="queue-details__card">
@@ -42,5 +42,5 @@
     </div>
   </body>
 </html>
-<script src="./syncQ.js"></script>
-<script src="index.js"></script>
+
+<script type="module" src="index.js"></script>

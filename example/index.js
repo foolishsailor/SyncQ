@@ -1,4 +1,6 @@
-const syncFetch = syncQ();
+import { SyncQ } from "./syncQ.js";
+
+const syncQ = SyncQ();
 
 let container = document.getElementById("results");
 let queueCount = document.querySelector('[name="queueItems"]');
@@ -19,21 +21,17 @@ const element = (data, status) => {
   }
 
   element.classList.add(elemClass);
-
   element.innerHTML = data;
-
   container.appendChild(element);
 };
 
 const success = (data) => {
-  console.log("queue", syncFetch.queue.length);
-  queueCount.value = syncFetch.queue.length;
+  queueCount.value = syncQ.queue.length;
   element(JSON.stringify(data), "success");
 };
 
 const fail = (data) => {
-  console.log("test", data);
-  queueCount.value = syncFetch.queue.length;
+  queueCount.value = syncQ.queue.length;
   element(data, "fail");
 };
 
@@ -44,8 +42,7 @@ const debugData = (data) => {
 
 const clearQueueItems = (event) => {
   event.preventDefault();
-  console.log("trigger", syncFetch.queue.length);
-  syncFetch.clearAll();
+  syncQ.clearAll();
 };
 
 const addQueueItems = (event) => {
@@ -72,6 +69,11 @@ const addQueueItems = (event) => {
   }
 
   for (let i = 0; i < qty; i++) {
-    syncFetch.add(queueItemObj);
+    syncQ.add(queueItemObj);
   }
 };
+
+document.getElementById("startTest").addEventListener("click", addQueueItems);
+document
+  .getElementById("clearQueue")
+  .addEventListener("click", clearQueueItems);

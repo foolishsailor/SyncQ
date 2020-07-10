@@ -6,7 +6,7 @@ module.exports = ["source-map"].map((devtool) => ({
     path: path.resolve(__dirname, "dist"),
     filename: "syncQ.js",
     library: "syncQ",
-    libraryTarget: "umd",
+    libraryTarget: "umd-module",
   },
   devtool: "source-map",
 }));
